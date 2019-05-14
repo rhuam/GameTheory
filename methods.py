@@ -1,7 +1,4 @@
-import time
-from pprint import pprint
 import numpy as np
-
 
 ## Solution by dominant action
 def dominant(payoff_matrix, player):
@@ -23,14 +20,3 @@ def dominant(payoff_matrix, player):
     else:
         print(payoff_matrix)
 
-
-
-if __name__ == "__main__":
-
-    # payoff_matrix = np.array([[(5,0), (5,4), (0,3)],
-    #                           [(0,4), (0,3), (5,2)]], dtype='f,f')
-
-    payoff_matrix = np.array([[(-8, -8), (0, -10)],
-                              [(-10, 0), (-1, -1)]], dtype='f,f')
-
-    dominant(payoff_matrix, 0)
