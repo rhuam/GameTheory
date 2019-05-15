@@ -22,7 +22,7 @@ def dominant(payoff_matrix, player = 0):
         payoff_matrix = payoff_matrix[mask]
         return dominant(payoff_matrix, player)
     else:
-        return payoff_matrix
+        print(payoff_matrix)
 
 
 def pareto(payoff_matrix):
@@ -34,4 +34,4 @@ def pareto(payoff_matrix):
 
     player_sums.sort(key=lambda tup: tup[1], reverse=True)
 
-    return [[s[0] for s in player_sums if s[1] == player_sums[0][1]]]
+    print([[s[0] for s in player_sums if s[1] == player_sums[0][1]]])
