@@ -22,7 +22,7 @@ def dominant(payoff_matrix, player = 0):
         payoff_matrix = payoff_matrix[mask]
         return dominant(payoff_matrix, player)
     else:
-        print(payoff_matrix)
+        print(list(payoff_matrix))
 
 
 def pareto(payoff_matrix):
@@ -40,7 +40,7 @@ def pareto(payoff_matrix):
     print(payoff_matrix[mask])
 
 
-def nesh(payoff_matrix):
+def nash(payoff_matrix):
     # mask = np.full(payoff_matrix.shape, False, dtype='bool')
     mask = payoff_matrix.astype('bool, bool')
     mask.fill(False)
