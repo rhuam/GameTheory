@@ -50,13 +50,13 @@ def nash(payoff_matrix):
             slice_line = list(payoff_matrix[line])
             slice_col = list(payoff_matrix[:, col])
 
-            mask[line][col][0] = sx[0] >= max(slice_line, key=lambda tup: tup[1])[1]
-            mask[line][col][1] = sx[1] >= max(slice_col, key=lambda tup: tup[0])[0]
+            mask[line][col][1] = sx[1] >= max(slice_line, key=lambda tup: tup[1])[1]
+            mask[line][col][0] = sx[0] >= max(slice_col, key=lambda tup: tup[0])[0]
+
 
     new_mask = np.full(payoff_matrix.shape, False, dtype='bool')
     for line, _ in enumerate(payoff_matrix):
         for col, sx in enumerate(_):
-
             new_mask[line][col] = mask[line][col][0] and mask[line][col][1]
 
     print(payoff_matrix[new_mask])
@@ -68,8 +68,12 @@ if __name__ == "__main__":
     payoff_prisoners_dilemma = np.array([[(-8, -8), (0, -10)],
                                         [(-10, 0), (-1, -1)]], dtype='f,f')
 
+    # payoff_matrix = np.array([[(5, 0), (5, 4), (0, 3)],
+    #                           [(5, 5), (0, 3), (5, 2)]], dtype='f,f')
+
     payoff_matrix = np.array([[(5, 0), (5, 4), (0, 3)],
-                              [(5, 5), (0, 3), (5, 2)]], dtype='f,f')
+                              [(0,4), (0, 3), (5, 2)]], dtype='f,f')
+
     # dominant(payoff_prisoners_dilemma, 0)
 
-    pareto(payoff_prisoners_dilemma)
+    nash(payoff_matrix)
